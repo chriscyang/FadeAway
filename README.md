@@ -1,9 +1,12 @@
 # Fade Away
 
-A 2D game made in Unity for Global Game Jam Vancouver 2016.
+A 2D top-down puzzle game with a little twist!
+
+Made at Global Game Jam 2016.
 
 ## Team
-* Martin Lee
-* Grace Liang
-* Martin Tsang
-* Christopher Yang
+
+* [Martin Lee](https://github.com/mh22lee)
+* [Grace Liang](https://github.com/grace-liang)
+* [Martin Tsang](https://github.com/m4rtint)
+* [Christopher Yang](https://github.com/chriscyang)
