@@ -3,8 +3,6 @@ using System.Collections;
 
 public class FireballRandom : MonoBehaviour
 {
-
-
 	private int speed = 3;
 	private bool moveLeft;
 	public AudioClip clip;
@@ -16,23 +14,23 @@ public class FireballRandom : MonoBehaviour
 
 	void Update ()
 	{
+		float zDelta = Random.Range (45.0f, 90.0f);
+		bool zDeltaNeg = Random.value < 0.5;
 
-		float z_change = Random.Range (45.0F, 90.0F);
-		bool z_change_neg = Random.value < 0.5;
-		if (z_change_neg)
-			z_change *= -1;
+		if (zDeltaNeg) {
+			zDelta *= -1;
+		}
+
 		if (moveLeft) {
-			transform.Rotate (new Vector3 (0, 0, z_change) * speed * Time.deltaTime);
+			transform.Rotate (new Vector3 (0, 0, zDelta) * speed * Time.deltaTime);
 		} else {
-			transform.Rotate (new Vector3 (0, 0, z_change) * speed * Time.deltaTime);
-
+			transform.Rotate (new Vector3 (0, 0, zDelta) * speed * Time.deltaTime);
 		}
 	}
 
 	public void reverseDirection ()
 	{
 		moveLeft = !moveLeft;
-		// Debug.Log (moveLeft);
 	}
 
 	void OnTriggerEnter2D (Collider2D other)

@@ -8,14 +8,14 @@ public class Timer : MonoBehaviour
 	private float goalTime;
 	private static float remainingTime;
 	private string timerText;
-	private double current_power;
+	private double currentPower;
 
 	void Start ()
 	{
 		Debug.Log ("LEVEL:" + Global.level);
 		goalTime = Time.time;
 		remainingTime = Global.times [Global.level];
-		current_power = Global.GetPower ();
+		currentPower = Global.GetPower ();
 	}
 
 	void Update ()
@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
 		}
 
 		SetTimerText (remainingTime);
-		current_power = Global.GetPower ();
+		currentPower = Global.GetPower ();
 	}
 
 	void DeathByTimer ()
@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour
 		int ss = (int)time % 60;
 		float fraction = (time * 100) % 100;
 
-		timerText = string.Format ("{0:00}:{1:00}:{2:00}" + "\nPower:{3:00}", mm, ss, fraction, current_power);
+		timerText = string.Format ("{0:00}:{1:00}:{2:00}" + "\nPower:{3:00}", mm, ss, fraction, currentPower);
 		this.GetComponent<Text> ().text = timerText;
 	}
 

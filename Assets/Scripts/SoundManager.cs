@@ -7,13 +7,12 @@ public class SoundManager : MonoBehaviour
 
 	void Awake ()
 	{
-
 		DontDestroyOnLoad (this.gameObject);
 	}
 
 	void Start ()
 	{
 		AudioSource source = GetComponent<AudioSource> ();
-		source.PlayOneShot (clip, 0.2F);
+		source.PlayOneShot (clip, 0.2f);
 	}
 }

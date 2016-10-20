@@ -4,18 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class L5Player : Player
 {
-
 	bool platformEntered;
 	bool deathzoneEntered;
 
-	// Use this for initialization
 	void Start ()
 	{
 		platformEntered = true;
 		deathzoneEntered = false;
 	}
 
-	// Update is called once per frame
 	void Update ()
 	{
 		if (!platformEntered && deathzoneEntered) {
@@ -46,12 +43,12 @@ public class L5Player : Player
 		if (tagName == "Platform") {
 			platformEntered = true;
 
-			float x_value = other.GetComponent<Transform> ().position.x;
-			float y_value = this.GetComponent<Transform> ().position.y;
-			float z_value = this.GetComponent<Transform> ().position.z;
-			Vector3 new_positions = new Vector3 (x_value, y_value, z_value);
+			float x = other.GetComponent<Transform> ().position.x;
+			float y = this.GetComponent<Transform> ().position.y;
+			float z = this.GetComponent<Transform> ().position.z;
+			Vector3 newPos = new Vector3 (x, y, z);
 
-			transform.position = Vector3.MoveTowards (transform.position, new_positions, (speed + 1) * Time.deltaTime);
+			transform.position = Vector3.MoveTowards (transform.position, newPos, (speed + 1) * Time.deltaTime);
 		} else if (tagName == "Deathzone") {
 			deathzoneEntered = true;
 
@@ -60,7 +57,6 @@ public class L5Player : Player
 			platformEntered = true;
 		}
 	}
-
 
 	void OnTriggerExit2D (Collider2D other)
 	{

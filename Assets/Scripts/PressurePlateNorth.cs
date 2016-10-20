@@ -3,12 +3,11 @@ using System.Collections;
 
 public class PressurePlateNorth : MonoBehaviour
 {
-
 	float timeLeft = 0.5f;
 	bool countDownStart = false;
 	private GameObject gate;
 
-	public AudioClip opengate_sound;
+	public AudioClip gateOpenSound;
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
@@ -23,9 +22,9 @@ public class PressurePlateNorth : MonoBehaviour
 	void Update ()
 	{
 		if (timeLeft <= 0) {
-			Debug.Log ("Time has hit 0");
 			AudioSource source = GetComponent<AudioSource> ();
-			source.PlayOneShot (opengate_sound, 0.7F);
+			source.PlayOneShot (gateOpenSound, 0.7f);
+
 			gate = GameObject.Find ("Gate_North");
 			Destroy (gate.GetComponent<Wall> ());
 			Destroy (gate.GetComponent<Collider2D> ());
@@ -33,9 +32,9 @@ public class PressurePlateNorth : MonoBehaviour
 			Destroy (this.GetComponent<SpriteRenderer> ());
 			Destroy (this.gameObject);
 		}
+
 		if (countDownStart && timeLeft > 0) {
 			timeLeft -= Time.deltaTime;
-			Debug.Log (timeLeft);
 		} else {
 			timeLeft = 0.5f;
 		}

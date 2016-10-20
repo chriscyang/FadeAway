@@ -7,7 +7,6 @@ public class Wall : MonoBehaviour
 	protected float fadeDuration = 2;
 	private float timer = 0;
 
-
 	public static bool disableCollider;
 
 	void Start ()
@@ -17,7 +16,6 @@ public class Wall : MonoBehaviour
 
 	protected void Update ()
 	{
-
 		// Fade the walls from red to white gradually over fadeDuration.
 		Color change = this.GetComponent<SpriteRenderer> ().material.color;
 		change.a = 1 - timer;

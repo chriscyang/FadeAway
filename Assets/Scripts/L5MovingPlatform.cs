@@ -3,21 +3,17 @@ using System.Collections;
 
 public class L5MovingPlatform : MonoBehaviour
 {
-
 	public bool moveLeft;
 	private float timer = 0;
 	private float fadeDuration = 5;
 
-	// Use this for initialization
 	void Start ()
 	{
 		moveLeft = Random.value < 0.5;
 	}
 
-	// Update is called once per frame
 	void Update ()
 	{
-
 		if (moveLeft) {
 			transform.Translate (Vector3.left * 5 * Time.deltaTime);
 		} else {
@@ -46,5 +42,4 @@ public class L5MovingPlatform : MonoBehaviour
 	{
 		moveLeft = !moveLeft;
 	}
-
 }

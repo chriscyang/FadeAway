@@ -4,21 +4,21 @@ using System.Collections;
 public class Charge : MonoBehaviour
 {
 	private Wall[] walls;
-	public AudioClip powerup_sound;
+
+	public AudioClip powerUpSound;
 
 	void Start ()
 	{
 		walls = FindObjectsOfType (typeof(Wall)) as Wall[];
-
 	}
-
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
 		Debug.Log ("Player collided with a charge.");
-		// Play sound effect
+
+		// Play sound effect.
 		AudioSource source = GetComponent<AudioSource> ();
-		source.PlayOneShot (powerup_sound, 0.7F);
+		source.PlayOneShot (powerUpSound, 0.7f);
 
 		foreach (Wall w in walls) {
 			w.AddDuration ();
@@ -27,6 +27,5 @@ public class Charge : MonoBehaviour
 		Destroy (this.GetComponent<Collider2D> ());
 		Destroy (this.GetComponent<Animator> ());
 		Destroy (this.GetComponent<SpriteRenderer> ());
-
 	}
 }

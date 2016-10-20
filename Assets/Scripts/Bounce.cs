@@ -3,35 +3,35 @@ using System.Collections;
 
 public class Bounce : MonoBehaviour
 {
-
-	float speed;
 	Vector3 direction;
-	float min, max;
-	float units = 0.03f;
+	float speed;
 
-	// Use this for initialization
+	float min, max;
+	float unit = 0.03f;
+
 	void Start ()
 	{
 		max = transform.position.y;
-		min = transform.position.y - units;
+		min = transform.position.y - unit;
 
 		direction = Vector3.down;
 	}
 
-	// Update is called once per frame
 	void Update ()
 	{
-
-		if (direction == Vector3.down)
+		if (direction == Vector3.down) {
 			speed = 0.5f;
-		else
+		} else {
 			speed = 0.05f;
+		}
 
 		transform.Translate (direction * speed * Time.deltaTime);
 
-		if (transform.position.y >= max)
+		if (transform.position.y >= max) {
 			direction = Vector3.down;
-		if (transform.position.y <= min)
+		}
+		if (transform.position.y <= min) {
 			direction = Vector3.up;
+		}
 	}
 }

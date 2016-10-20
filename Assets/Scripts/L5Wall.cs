@@ -3,23 +3,20 @@ using System.Collections;
 
 public class L5Wall : MonoBehaviour
 {
-
-	// Use this for initialization
 	void Start ()
 	{
+		// Empty.
 	}
 
-
-	// Update is called once per frame
 	void Update ()
 	{
-
+		// Empty.
 	}
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-
-		if (other.tag == "Platform")
+		if (other.tag == "Platform") {
 			other.SendMessage ("reverseDirection");
+		}
 	}
 }

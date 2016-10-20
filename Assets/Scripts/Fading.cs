@@ -32,11 +32,9 @@ public class Fading : MonoBehaviour
 	void OnLevelWasLoaded ()
 	{
 		if (!Global.levelImageSeen) {
-			Debug.Log ("Print");
 			level.CrossFadeAlpha (0.0f, fadeDuration, false);
 			Global.levelImageSeen = true;
 		} else {
-			Debug.Log ("Don't Print");
 			level.CrossFadeAlpha (0.0f, 0.0f, false);
 		}
 
